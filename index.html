@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="description" content="System Mobilya & Banyo Aksesuarları Bağlantı Portalı" />
+  <title>SYSTEM MOBİLYA & BANYO AKSESUARLARI</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glow Effect -->
+  <div class="glow-sphere top-glow" aria-hidden="true"></div>
+  <div class="glow-sphere bottom-glow" aria-hidden="true"></div>
+
+  <!-- Toast Notification (Kopyalandı bildirimi için) -->
+  <div id="toast-message" class="toast-message" role="alert" aria-live="polite"></div>
+
+  <main class="card-container">
+    
+    <!-- Top Action Bar (Dil Değiştirici, Paylaş & QR Butonları) -->
+    <header class="header-nav">
+      <!-- TR / EN Switcher -->
+      <div class="lang-switcher" role="tablist" aria-label="Dil Seçimi / Language Selection">
+        <button id="btn-tr" class="lang-btn active" role="tab" aria-selected="true" onclick="setLanguage('TR')">
+          <span>TR</span>
+        </button>
+        <button id="btn-en" class="lang-btn" role="tab" aria-selected="false" onclick="setLanguage('EN')">
+          <span>EN</span>
+        </button>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="top-actions">
+        <!-- Native Share Button -->
+        <button id="share-btn" class="action-btn" title="Paylaş / Share" aria-label="Sayfayı Paylaş" onclick="sharePage()">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        </button>
+        <!-- QR Code Modal Trigger Button -->
+        <button id="qr-btn" class="action-btn" title="QR Kod / QR Code" aria-label="QR Kodu Göster" onclick="openQrModal()">
+          <i class="fa-solid fa-qrcode"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Brand Logo Circle -->
+    <section class="brand-section">
+      <div class="logo-wrapper">
+        <img src="assets/images/logo.svg" alt="System Logo" class="brand-logo" />
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="brand-title" id="main-title">
+        SYSTEM MOBİLYA & BANYO AKSESUARLARI
+      </h1>
+    </section>
+
+    <!-- Interactive Links List -->
+    <nav class="links-wrapper" aria-label="Sosyal ve Web Bağlantıları">
+      
+      <!-- 1. Mobilya Aksesuarları Link -->
+      <a id="link-furniture" href="https://www.systemhandle.com/tr-TR/AnaSayfa" target="_blank" rel="noopener noreferrer" class="link-item">
+        <div class="link-icon-container">
+          <i class="fa-solid fa-link"></i>
+        </div>
+        <span class="link-label" id="link-1">SYSTEM MOBİLYA AKSESUARLARI</span>
+        <div class="link-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- 2. Handles Instagram Link -->
+      <a href="https://www.instagram.com/systemhandles/" target="_blank" rel="noopener noreferrer" class="link-item">
+        <div class="link-icon-container instagram">
+          <i class="fa-brands fa-square-instagram"></i>
+        </div>
+        <span class="link-label" id="link-2">SYSTEM HANDLES</span>
+        <div class="link-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- 3. Banyo Aksesuarları Link -->
+      <a id="link-bathroom" href="https://systembanyo.com/anasayfa/index.html" target="_blank" rel="noopener noreferrer" class="link-item">
+        <div class="link-icon-container">
+          <i class="fa-solid fa-link"></i>
+        </div>
+        <span class="link-label" id="link-3">SYSTEM BANYO AKSESUARLARI</span>
+        <div class="link-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- 4. Banyo Instagram Link -->
+      <a href="https://www.instagram.com/systembanyo/" target="_blank" rel="noopener noreferrer" class="link-item">
+        <div class="link-icon-container instagram">
+          <i class="fa-brands fa-square-instagram"></i>
+        </div>
+        <span class="link-label" id="link-4">SYSTEM BANYO</span>
+        <div class="link-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+    </nav>
+
+    <!-- Bottom Footer (Dinamik TR/EN Telif Metni) -->
+    <footer class="footer-section">
+      <p id="footer-text">© <span id="current-year"></span> System Aksesuarları. Tüm hakları saklıdır.</p>
+    </footer>
+  </main>
+
+  <!-- ================= QR CODE POPUP MODAL ================= -->
+  <div id="qr-modal" class="qr-modal-overlay" onclick="closeQrModal(event)">
+    <div class="qr-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close-btn" aria-label="Kapat" onclick="closeQrModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-logo-mini">
+        <img src="assets/images/logo.svg" alt="System Mini Logo" />
+      </div>
+
+      <h2 id="modal-title" class="modal-heading">QR KOD İLE PAYLAŞ</h2>
+      <p id="modal-desc" class="modal-subtext">Kameranız ile okutarak hızlıca bağlantıyı açın</p>
+
+      <div class="qr-image-wrapper">
+        <img id="qr-code-img" src="" alt="System Portal QR Code" />
+      </div>
+
+      <button class="modal-action-btn" onclick="copyCurrentUrl()">
+        <i class="fa-regular fa-copy"></i>
+        <span id="modal-copy-btn">Bağlantıyı Kopyala</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
