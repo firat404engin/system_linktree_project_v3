@@ -23,14 +23,10 @@
   <div class="glow-sphere top-glow" aria-hidden="true"></div>
   <div class="glow-sphere bottom-glow" aria-hidden="true"></div>
 
-  <!-- Toast Notification (Kopyalandı bildirimi için) -->
-  <div id="toast-message" class="toast-message" role="alert" aria-live="polite"></div>
-
   <main class="card-container">
     
-    <!-- Top Action Bar (Dil Değiştirici, Paylaş & QR Butonları) -->
+    <!-- TR / EN Dil Seçimi -->
     <header class="header-nav">
-      <!-- TR / EN Switcher -->
       <div class="lang-switcher" role="tablist" aria-label="Dil Seçimi / Language Selection">
         <button id="btn-tr" class="lang-btn active" role="tab" aria-selected="true" onclick="setLanguage('TR')">
           <span>TR</span>
@@ -39,36 +35,24 @@
           <span>EN</span>
         </button>
       </div>
-
-      <!-- Quick Action Buttons -->
-      <div class="top-actions">
-        <!-- Native Share Button -->
-        <button id="share-btn" class="action-btn" title="Paylaş / Share" aria-label="Sayfayı Paylaş" onclick="sharePage()">
-          <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </button>
-        <!-- QR Code Modal Trigger Button -->
-        <button id="qr-btn" class="action-btn" title="QR Kod / QR Code" aria-label="QR Kodu Göster" onclick="openQrModal()">
-          <i class="fa-solid fa-qrcode"></i>
-        </button>
-      </div>
     </header>
 
-    <!-- Brand Logo Circle -->
+    <!-- Marka Logosu -->
     <section class="brand-section">
       <div class="logo-wrapper">
         <img src="assets/images/logo.svg" alt="System Logo" class="brand-logo" />
       </div>
 
-      <!-- Main Title -->
+      <!-- Başlık -->
       <h1 class="brand-title" id="main-title">
         SYSTEM MOBİLYA & BANYO AKSESUARLARI
       </h1>
     </section>
 
-    <!-- Interactive Links List -->
+    <!-- Link Listesi -->
     <nav class="links-wrapper" aria-label="Sosyal ve Web Bağlantıları">
       
-      <!-- 1. Mobilya Aksesuarları Link -->
+      <!-- 1. Mobilya Aksesuarları Link (Dinamik URL & Metin) -->
       <a id="link-furniture" href="https://www.systemhandle.com/tr-TR/AnaSayfa" target="_blank" rel="noopener noreferrer" class="link-item">
         <div class="link-icon-container">
           <i class="fa-solid fa-link"></i>
@@ -90,7 +74,7 @@
         </div>
       </a>
 
-      <!-- 3. Banyo Aksesuarları Link -->
+      <!-- 3. Banyo Aksesuarları Link (Dinamik URL & Metin) -->
       <a id="link-bathroom" href="https://systembanyo.com/anasayfa/index.html" target="_blank" rel="noopener noreferrer" class="link-item">
         <div class="link-icon-container">
           <i class="fa-solid fa-link"></i>
@@ -114,36 +98,11 @@
 
     </nav>
 
-    <!-- Bottom Footer (Dinamik TR/EN Telif Metni) -->
+    <!-- Footer Telif Metni -->
     <footer class="footer-section">
       <p id="footer-text">© <span id="current-year"></span> System Aksesuarları. Tüm hakları saklıdır.</p>
     </footer>
   </main>
-
-  <!-- ================= QR CODE POPUP MODAL ================= -->
-  <div id="qr-modal" class="qr-modal-overlay" onclick="closeQrModal(event)">
-    <div class="qr-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal-close-btn" aria-label="Kapat" onclick="closeQrModal()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="modal-logo-mini">
-        <img src="assets/images/logo.svg" alt="System Mini Logo" />
-      </div>
-
-      <h2 id="modal-title" class="modal-heading">QR KOD İLE PAYLAŞ</h2>
-      <p id="modal-desc" class="modal-subtext">Kameranız ile okutarak hızlıca bağlantıyı açın</p>
-
-      <div class="qr-image-wrapper">
-        <img id="qr-code-img" src="" alt="System Portal QR Code" />
-      </div>
-
-      <button class="modal-action-btn" onclick="copyCurrentUrl()">
-        <i class="fa-regular fa-copy"></i>
-        <span id="modal-copy-btn">Bağlantıyı Kopyala</span>
-      </button>
-    </div>
-  </div>
 
   <!-- Custom JavaScript -->
   <script src="js/script.js"></script>
