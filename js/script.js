@@ -1,7 +1,6 @@
 /**
- * SYSTEM ACCESSORIES - Dynamic Multi-Language & Interactive Controller
+ * SYSTEM AKSESUARLARI - Dinamik Çoklu Dil & Etkileşim Yöneticisi
  */
-
 const currentYear = new Date().getFullYear();
 
 const translations = {
