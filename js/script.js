@@ -23,7 +23,7 @@ const translations = {
     link2Text: "SYSTEM HANDLES",
     link3Text: "SYSTEM BATHROOM ACCESSORIES",
     link3Url: "https://systembanyo.com/home/index.html",
-    link4Text: "SYSTEM BANYO",
+    link4Text: "SYSTEM BATHROOM",
     footerText: `© ${currentYear} System Accessories. All rights reserved.`
   }
 };
